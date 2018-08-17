@@ -10,7 +10,7 @@ function draw (weather){
 		
 		template = `
 		
-		<div>
+		<div class="text-block">
 		<h4> ${weather.main.temp}</h4>
 		</div>
 		`;
