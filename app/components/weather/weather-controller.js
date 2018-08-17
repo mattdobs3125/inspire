@@ -11,7 +11,7 @@ function draw (weather){
 		template = `
 		
 		<div>
-		<h4> ${weather.main}</h4>
+		<h4> ${weather.main.temp}</h4>
 		</div>
 		`;
 		document.getElementById("weather-k").innerHTML = template
