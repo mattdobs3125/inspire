@@ -8,7 +8,8 @@ function draw (quote){
 		template = `
 		<div class="well">
 		
-		<h5>${quote.quote}</h5>
+		<h5>${quote.quote}BY:${quote.author}</h5>
+
 		
 		</div>
 		

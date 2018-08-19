@@ -26,11 +26,17 @@
 
 					
 
-
-	<div id="todo" class="col-sm-2 todo-card mx-3" >
-		
-		A Todo List
-	</div>
+	
+	
+	<div>
+		<form onsubmit="app.controller.todoController.addFromForm(event)" class="col-sm-12">
+				<input type="text" name="todo"class="input-group" >
+				<button type="submit" onClick="addTodoFromForm(e)">Add Todo</button>
+		<button onclick="app.controllers.todoController.removeTodo(todo._id)"</button>
+				<div id="todo" class="col-sm-2 " >
+					A Todo List
+				</div>
+			</div>
 
 
 

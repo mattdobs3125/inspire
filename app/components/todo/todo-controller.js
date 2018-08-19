@@ -12,21 +12,38 @@ function getTodos() {
 }
 
 function draw(todos) {
+	let template = ''
 	//WHAT IS MY PURPOSE?
+
 	//BUILD YOUR TODO TEMPLATE HERE
-	
-	var template = ''
-	todos.forEach(todo=>{
-		template += `
-		<div class="row">
-		<form onsubmit="app.controller.todoController.addFromForm(event)" class="col-sm-12">
-		<input type="text" name="todo" placeholder="todos" required>
-		<button type="submit" onClick="addTodoFromForm(todos)">Add Todo</button>
-		</div>
+
+
+
+
+	if (`{todo.length}`<= 0){
+		template +=`
+		<h4>there isnt any todos <h4>
 		`
-	});
+	}else{
+		todos.forEach(todo=>{
+			
+			
+			template += `
+				<div class="row">
+				<ul>${todo.description}</ul>
+				
+				</div>
+				`
+			
+			
+			
+			
+	
+		});
+	}
+	
 	document.getElementById('todo').innerHTML = template
-	//DONT FORGET TO LOOP
+	// DONT FORGET TO LOOP
 }
 		
 
@@ -49,11 +66,14 @@ export default class TodoController {
 
 
 	addTodoFromForm(e) {
-		e.preventDefault() // <-- hey this time its a freebie don't forget this
+		e.preventDefault()
+		console.log(e.target.newItem.value) // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
-			description: form.todo.value
+			description: e.target.newItem.value,
+			completed: false,
+			user: todoService.user
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
 
@@ -72,7 +92,7 @@ export default class TodoController {
 
 	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
-		todoService.removeTodo(todoId,getTodos)
+		todoService.removeTodo(todoId)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
