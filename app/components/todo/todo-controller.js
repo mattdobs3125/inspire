@@ -7,19 +7,37 @@ var todoService = new TodoService
 // Use this getTodos function as your callback for all other edits
 function getTodos() {
 	//FYI DONT EDIT ME :)
+	
 	todoService.getTodos(draw)
 }
 
 function draw(todos) {
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
+	
 	var template = ''
+	todos.forEach(todo=>{
+		template += `
+		<div class="row">
+		<form onsubmit="app.controller.todoController.addFromForm(event)" class="col-sm-12">
+		<input type="text" name="todo" placeholder="todos" required>
+		<button type="submit" onClick="addTodoFromForm(todos)">Add Todo</button>
+		</div>
+		`
+	});
+	document.getElementById('todo').innerHTML = template
 	//DONT FORGET TO LOOP
 }
+		
+
+		
+		
 
 
 export default class TodoController {
 	constructor() {
+		getTodos();
+	
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
 	// You will need four methods
@@ -35,6 +53,7 @@ export default class TodoController {
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
+			description: form.todo.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
 
@@ -53,7 +72,7 @@ export default class TodoController {
 
 	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(todoId,getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 

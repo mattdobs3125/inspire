@@ -10,8 +10,9 @@ function draw (weather){
 		
 		template = `
 		
-		<div class="text-block">
-		<h4> ${weather.main.temp}</h4>
+		<div class="well">
+		<h2> ${weather.main.temp} F City of ${weather.name}</h2>
+		
 		</div>
 		`;
 		document.getElementById("weather-k").innerHTML = template
