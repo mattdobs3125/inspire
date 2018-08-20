@@ -31,7 +31,7 @@ function draw(todos) {
 			template += `
 				<div class="row">
 				<ul>${todo.description}</ul>
-				
+				<button onclick="app.controllers.todoController.removeTodo(todo.id)" </button>
 				</div>
 				`
 			
@@ -53,7 +53,7 @@ function draw(todos) {
 
 export default class TodoController {
 	constructor() {
-		getTodos();
+		todoService.getTodos(draw);
 	
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
@@ -67,11 +67,11 @@ export default class TodoController {
 
 	addTodoFromForm(e) {
 		e.preventDefault()
-		console.log(e.target.newItem.value) // <-- hey this time its a freebie don't forget this
+		console.log(e.target.todo.value) // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
-			description: e.target.newItem.value,
+			description: e.target.todo.value,
 			completed: false,
 			user: todoService.user
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
@@ -93,6 +93,7 @@ export default class TodoController {
 	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
 		todoService.removeTodo(todoId)
+		
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 

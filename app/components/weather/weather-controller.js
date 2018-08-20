@@ -17,7 +17,7 @@ function draw (weather){
 		`;
 		document.getElementById("weather-k").innerHTML = template
 		
-		
+	                    	
 		
 	}                                       
 		
