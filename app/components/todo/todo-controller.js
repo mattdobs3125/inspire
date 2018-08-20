@@ -31,7 +31,7 @@ function draw(todos) {
 			template += `
 				<div class="row">
 				<ul>${todo.description}</ul>
-				<button onclick="app.controllers.todoController.removeTodo(todo.id)" </button>
+				<button onclick="app.controllers.todoController.removeTodo(todo.id)"> </button>
 				</div>
 				`
 			
