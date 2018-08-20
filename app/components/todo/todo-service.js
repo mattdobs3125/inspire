@@ -19,6 +19,7 @@ export default class TodoService {
         // <-- WHY IS THIS IMPORTANT????
         todoList = res.data.data;
         let k = todoList;
+        console.log(k)
         draw(k);
       })
       .catch(logError);
@@ -54,7 +55,7 @@ console.log(todo)
       .catch(logError);
   }
 
-  removeTodo(todoId, call) {
+  removeTodo(todoId) {
     todoApi.delete(todoId);
     this.getTodos(call);
 
