@@ -40,7 +40,7 @@ export default class TodoService {
 		//STEP 1: Find the todo by its index **HINT** todoList
 
 		var todo = todoList.find(todo=> todo._id == todoId);
-		todo.completed = !todo.completed;///MODIFY THIS LINE
+		// todo.completed = !todo.completed;///MODIFY THIS LINE
 
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 		todoApi.put(todoId, todo)
@@ -51,13 +51,13 @@ export default class TodoService {
 			.catch(logError)
 	}
 
-	removeTodo(todoId,call)  {
+	removeTodo(todoId,draw)  {
 		
     todoApi.delete('',todoId)
 	.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-		todoList.push(todo)
+		this.getTodos(draw)
 		})
-		.then(call)
+		
 		.catch(logError)
 }	
 	
