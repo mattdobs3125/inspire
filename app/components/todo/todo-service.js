@@ -20,6 +20,7 @@ export default class TodoService {
 		todoApi.get('')
 			.then((res) => { // <-- WHY IS THIS IMPORTANT????
 			todoList = (res.data.data)
+			console.log(todoList)
 			draw(todoList)
 			})
 			.catch(logError)
@@ -39,19 +40,19 @@ export default class TodoService {
 		// MAKE SURE WE THINK THIS ONE THROUGH
 		//STEP 1: Find the todo by its index **HINT** todoList
 
-		var todo = todoList.find(todo=> todo._id == todoId);
 		// todo.completed = !todo.completed;///MODIFY THIS LINE
-
+		
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 		todoApi.put(todoId, todo)
-			.then(function (res) {
-				call(res)//DO YOU WANT TO DO ANYTHING WITH THIS?
-			})
-			.then()
-			.catch(logError)
+		.then(function (res) {
+			call(res)//DO YOU WANT TO DO ANYTHING WITH THIS?
+		})
+		.then()
+		.catch(logError)
 	}
-
+	
 	removeTodo(todoId,draw)  {
+		var todo = todoList.find(todo=> todo._id == todoId);
 		
     todoApi.delete('',todoId)
 	.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?

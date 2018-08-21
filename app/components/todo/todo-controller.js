@@ -10,9 +10,13 @@ function getTodos() {
 	
 	todoService.getTodos(draw)
 }
-
+// function count(){
+// 	let k = 
+// 	document.getElementById('count').innerHTML = k
+	
+// }
 function draw(todos) {
-	let template = ''
+	let template = `<h2>${todos.length}</h2>`
 	//WHAT IS MY PURPOSE?
 
 	//BUILD YOUR TODO TEMPLATE HERE
@@ -32,15 +36,16 @@ function draw(todos) {
 				<div class="row">
 				<ul>${todo.description}</ul>
 				<button onclick="app.controllers.todoController.removeTodo(todo.id)">Delete </button>
+				
 				</div>
 				`
+			});
+		}
+		
 			
 			
 			
 			
-	
-		});
-	}
 	
 	document.getElementById('todo').innerHTML = template
 	// DONT FORGET TO LOOP
@@ -54,6 +59,7 @@ function draw(todos) {
 export default class TodoController {
 	constructor() {
 		todoService.getTodos(draw);
+		
 	
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
