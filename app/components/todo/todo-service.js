@@ -54,10 +54,10 @@ export default class TodoService {
 	removeTodo(todoId,draw)  {
 		var todo = todoList.find(todo=> todo._id == todoId);
 		
-    todoApi.delete('',todoId)
-	.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-		this.getTodos(draw)
-		})
+    todoApi.delete(todoId)
+	.then(draw)// <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
+		
+		
 		
 		.catch(logError)
 }	

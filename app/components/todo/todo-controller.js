@@ -35,7 +35,7 @@ function draw(todos) {
 			template += `
 				<div class="row">
 				<ul id="list">${todo.description}</ul>
-				<button class="btn btn-danger" onclick="app.controllers.todoController.removeTodo(todo.id)">Delete </button>
+				<button class="btn btn-danger" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete </button>
 				
 				</div>
 				`
@@ -98,7 +98,8 @@ export default class TodoController {
 
 	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
-		todoService.removeTodo(todoId)
+		todoService.removeTodo(todoId,getTodos)
+		
 		
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
