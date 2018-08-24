@@ -16,7 +16,7 @@ function getTodos() {
 	
 // }
 function draw(todos) {
-	let template = `<h2>Total todos: ${todos.length}</h2>`
+	let template = `<h5>Total todos: ${todos.length}</h5>`
 	//WHAT IS MY PURPOSE?
 
 	//BUILD YOUR TODO TEMPLATE HERE
@@ -34,7 +34,7 @@ function draw(todos) {
 			
 			template += `
 				<div class="row">
-				<ul id="list">${todo.description}</ul>
+				<h4 id="list">${todo.description}</h4>
 				<button class="btn btn-danger" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete </button>
 				
 				</div>

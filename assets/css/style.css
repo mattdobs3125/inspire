@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
 }
-#list {
+.ul {
   color: #fff;
   background: #000000
   
@@ -23,9 +23,9 @@
   width: 100%;
 }
 h2 {
-  color: #000000;
-  background: #ffffff;
-  text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+  color: rgba(255,255,255,.3);
+background: #1a1a1a;
+text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 }
 
 h5 {

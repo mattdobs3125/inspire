@@ -6,7 +6,7 @@ function draw (quote){
 	let template = ""
 	for (let i in quote){
 		template = `
-		<div class="well">
+		<div class="fixed-bottom">
 		
 		<h5>${quote.quote}BY:${quote.author}</h5>
 
